@@ -1,8 +1,8 @@
 import sys
 import data.dict_data as dados
 from classes.motoboy_class import motoboy
-from classes.pedidos_class import pedidos
-from classes.lojas_class import lojas
+from classes.pedidos_class import pedido
+from classes.lojas_class import loja
 
 def initialize_motoboys_from_data(motoboys_data, selected_motoboy_ids):
     return [
@@ -16,7 +16,7 @@ def initialize_motoboys_from_data(motoboys_data, selected_motoboy_ids):
 
 def initialize_lojas_from_data(lojas_data):
     return [
-        lojas(
+        loja(
             loja_data.get("id"), 
             loja_data.get("comission")
         ) for loja_data in lojas_data
@@ -24,7 +24,7 @@ def initialize_lojas_from_data(lojas_data):
 
 def initialize_pedidos_from_data(pedidos_data):
     return [
-        pedidos(
+        pedido(
             pedido_data.get("id"), 
             pedido_data.get("price"), 
             pedido_data.get("id_loja")

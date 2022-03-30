@@ -1,4 +1,4 @@
-class pedidos:
+class pedido:
     def __init__(self, id, price, id_loja):
         self.id = id
         self.price = price
