@@ -5,6 +5,7 @@ from classes.motoboy_class import motoboy
 from classes.pedidos_class import pedido
 from classes.lojas_class import loja
 
+# Class Initialization Functions
 def initialize_motoboys_from_data(motoboys_data):
     return [
         motoboy(
@@ -41,8 +42,7 @@ def initialize_class_data(data = dados):
 
     return motoboys_list, lojas_list, pedidos_list
 
-
-
+# Utility Functions
 def get_loja_comission_by_loja_id(lojas_list, id_loja):
     loja_comission = [loja.comission for loja in lojas_list if loja.id == id_loja]
     if loja_comission:
@@ -56,6 +56,7 @@ def get_loja_ids_by_pedido_ids(lojas_list, pedidos_list, pedido_ids):
 
     return loja_ids
 
+# Data Processing Functions
 def distribute_pedidos(motoboys_list, pedidos_list):
     [id_lojas_com_motoboy_exclusivo] = [
         motoboy.exclusive_stores for motoboy in motoboys_list 
@@ -66,7 +67,6 @@ def distribute_pedidos(motoboys_list, pedidos_list):
     
     for motoboy in motoboys_list:
         motoboy.assign_orders(pedidos_list, id_lojas_com_motoboy_exclusivo, avg_orders_per_motoboy)
-        
 
 def calculate_motoboy_profit(motoboys_list, lojas_list, pedidos_list):
     for motoboy in motoboys_list:
@@ -83,18 +83,11 @@ def calculate_motoboy_profit(motoboys_list, lojas_list, pedidos_list):
 def display_motoboys_profit(motoboys_list, motoboy_ids=None):
     filtered_motoboys_list = [
         motoboy for motoboy in motoboys_list if not motoboy_ids or motoboy.id in motoboy_ids
-        ]
+    ]
     for motoboy in filtered_motoboys_list:
-        print("Motoboy {id_motoboy}:".format(id_motoboy=motoboy.id))
-
-        formatted_pedido_ids = ", ".join([str(id) for id in motoboy.assigned_orders])
-        print("Terá {qty_pedidos} pedidos.".format(qty_pedidos=len(motoboy.assigned_orders)))
-        print("Ele entregará o(s) pedido(s) {display_pedido_ids}.".format(display_pedido_ids=formatted_pedido_ids))
-        print("O motoboy será pago R${profit:.2f}".format(profit=motoboy.profit))
-
         loja_ids = get_loja_ids_by_pedido_ids(lojas_list, pedidos_list, motoboy.assigned_orders)
-        loja_ids_formatted = ", ".join([str(num) for num in loja_ids])
-        print("Os pedidos serão da(s) loja(s) {display_loja_ids}.\n".format(display_loja_ids=loja_ids_formatted))
+        motoboy.print_motoboy_data(loja_ids)
+
 
 if __name__ == "__main__":
     motoboy_ids = None
@@ -107,4 +100,3 @@ if __name__ == "__main__":
     distribute_pedidos(motoboys_list, pedidos_list)
     calculate_motoboy_profit(motoboys_list, lojas_list, pedidos_list)
     display_motoboys_profit(motoboys_list, motoboy_ids)
-    
