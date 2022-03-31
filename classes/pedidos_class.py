@@ -3,3 +3,4 @@ class pedido:
         self.id = id
         self.price = price
         self.id_loja = id_loja
+        self.assigned = False
