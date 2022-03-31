@@ -36,7 +36,7 @@ lojas = [
         "comission": 0.05
     },
     {
-        "id": 1,
+        "id": 3,
         "comission": 0.15
     },
 ]
