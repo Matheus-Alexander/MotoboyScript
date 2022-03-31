@@ -1,27 +1,27 @@
 motoboys = [
     {
         "id": 1,
-        "stores": [1, 2, 3],
+        "exclusive_stores": None,
         "fare_price": 2.0
     },
     {
         "id": 2,
-        "stores": [1, 2, 3],
+        "exclusive_stores": None,
         "fare_price": 2.0
     },
     {
         "id": 3,
-        "stores": [1, 2, 3],
+        "exclusive_stores": None,
         "fare_price": 2.0
     },
     {
         "id": 4,
-        "stores": [1],
+        "exclusive_stores": [1],
         "fare_price": 2.0
     },
     {
         "id": 5,
-        "stores": [1, 2, 3],
+        "exclusive_stores": None,
         "fare_price": 3.0
     },
 ]
