@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>deserializer_controller module &#8212; ZAX - Motoboy Script 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pydoctheme.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="shortcut icon" type="image/png" href="_static/lucit.png" />
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    
+    <script type="text/javascript" src="_static/copybutton.js"></script>
+    
+     
+
+  </head><body>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+    
+        
+    <li><img src="_static/github-logo.png" alt="GitHub Logo"
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://github.com/Matheus-Alexander/ZAX_MotoboyScript">ZAX - Motoboy Script</a> &#187;</li>
+        
+        
+    
+    
+    <a href="index.html">ZAX - Motoboy Script 1.0 documentation</a> &#187;
+    
+
+        <li class="nav-item nav-item-this"><a href="">deserializer_controller module</a></li>
+    <li class="right">
+        <a href="search.html" title="Search">search</a>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-deserializer_controller">
+<span id="deserializer-controller-module"></span><h1>deserializer_controller module<a class="headerlink" href="#module-deserializer_controller" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="deserializer_controller.deserialize_class_data">
+<span class="sig-prename descclassname"><span class="pre">deserializer_controller.</span></span><span class="sig-name descname"><span class="pre">deserialize_class_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data=&lt;module</span> <span class="pre">'data.dict_data'</span> <span class="pre">from</span> <span class="pre">'C:\\Users\\mathe\\ZAX_MotoboyScript\\data\\dict_data.py'&gt;</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#deserializer_controller.deserialize_class_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserializes a tuple of list[dict] containing data for Motoboy, Pedido, and Loja values
+calling each class’ deserialization method.</p>
+<dl>
+<dt>data<span class="classifier">tuple(list[dict], list[dict], list[dict])</span></dt><dd><dl class="simple">
+<dt>First list[dict] should contain a list of dict, with each dict containing values { </dt><dd><p>“id”: int,
+“exclusive_stores”: list[int],
+“fare_price”: float</p>
+</dd>
+</dl>
+<p>}. These will be assigned to Motoboy classes.
+Second list[dict] should contain a list of dict, with each dict containing values {</p>
+<blockquote>
+<div><p>“id”: int,
+“comission”: float</p>
+</div></blockquote>
+<p>}. These will be assigned to Loja classes.
+Third list[dict] should contain a list of dict, with each dict containing values {</p>
+<blockquote>
+<div><p>“id”: int,
+“id_loja”: int,
+“price”: float</p>
+</div></blockquote>
+<p>}. These will be assigned to Pedido classes.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>tuple(list[Motoboy], list[Loja], list[Pedido])</dt><dd><p>A tuple containing a list of instantiated Motoboy classes, a list of instantiated Loja classes,
+and a list of instantiated Pedido classes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="deserializer_controller.deserialize_lojas_from_data">
+<span class="sig-prename descclassname"><span class="pre">deserializer_controller.</span></span><span class="sig-name descname"><span class="pre">deserialize_lojas_from_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lojas_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#deserializer_controller.deserialize_lojas_from_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserializes a list variable containing dicts with values “id”, and “comission”,
+instantiating a class Loja for each value.</p>
+<dl>
+<dt>lojas_data<span class="classifier">list[dict]</span></dt><dd><p>dict should contain 
+{</p>
+<blockquote>
+<div><p>“id”: int,
+“comission”: float</p>
+</div></blockquote>
+<p>}</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>list[Loja]</dt><dd><p>A list of instantiated Motoboy classes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="deserializer_controller.deserialize_motoboys_from_data">
+<span class="sig-prename descclassname"><span class="pre">deserializer_controller.</span></span><span class="sig-name descname"><span class="pre">deserialize_motoboys_from_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">motoboys_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#deserializer_controller.deserialize_motoboys_from_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserializes a list variable containing dicts with values “id”, “exclusive_stores” and “fare_price”,
+instantiating a class Motoboy for each value.</p>
+<dl>
+<dt>motoboys_data<span class="classifier">list[dict]</span></dt><dd><p>dict should contain 
+{</p>
+<blockquote>
+<div><p>“id”: int,
+“exclusive_stores”: list[int],
+“fare_price”: float</p>
+</div></blockquote>
+<p>}</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>list[Motoboy]</dt><dd><p>A list of instantiated Motoboy classes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="deserializer_controller.deserialize_pedidos_from_data">
+<span class="sig-prename descclassname"><span class="pre">deserializer_controller.</span></span><span class="sig-name descname"><span class="pre">deserialize_pedidos_from_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pedidos_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#deserializer_controller.deserialize_pedidos_from_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deserializes a list variable containing dicts with values “id”, “id_loja”, and “price”,
+instantiating a class Pedido for each value.</p>
+<dl>
+<dt>pedidos_data<span class="classifier">list[dict]</span></dt><dd><p>dict should contain 
+{</p>
+<blockquote>
+<div><p>“id”: int,
+“id_loja”: int,
+“price”: float</p>
+</div></blockquote>
+<p>}</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>list[Pedido]</dt><dd><p>A list of instantiated Motoboy classes.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/deserializer_controller.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+    <div role="note" aria-label="source code">
+        <h3>GitHub</h3>
+        <ul class="this-page-menu">
+          <li><a href="https://github.com/Matheus-Alexander/ZAX_MotoboyScript">Show Source</a></li>
+          
+<li>
+<a class="github-button" href="https://github.com/Matheus-Alexander/ZAX_MotoboyScript"
+   data-icon="octicon-star" data-show-count="true"
+   aria-label="Star Matheus-Alexander/ZAX_MotoboyScript on GitHub">Star</a>
+<br />
+<a class="github-button" href="https://github.com/Matheus-Alexander/ZAX_MotoboyScript/subscription"
+   data-icon="octicon-eye" data-show-count="true"
+   aria-label="Watch Matheus-Alexander/ZAX_MotoboyScript on GitHub">Watch</a>
+<br />
+<a class="github-button" href="https://github.com/Matheus-Alexander/ZAX_MotoboyScript/fork"
+   data-icon="octicon-repo-forked" data-show-count="true"
+   aria-label="Fork Matheus-Alexander/ZAX_MotoboyScript on GitHub">Fork</a>
+<br />
+<a class="github-button" href="https://github.com/Matheus-Alexander/ZAX_MotoboyScript/issues"
+   data-icon="octicon-issue-opened"
+   data-show-count="true" aria-label="Issue Matheus-Alexander/ZAX_MotoboyScript on GitHub">Issue</a>
+    
+</li>
+
+        </ul>
+    </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+<br />
+
+<div style="text-align: center">
+    <br>
+    <a href="https://www.lucit.tech"><img src="https://www.lucit.tech/files/images/logos/LUCIT-LOGO.png"></a>
+    <p>
+        <a href="https://www.lucit.tech/trading-tools.html" style="font-size: 0.85em;font-weight: 900">Get customized trading software!</a>
+    </p>
+</div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+    
+        
+    <li><img src="_static/github-logo.png" alt="GitHub Logo"
+             style="vertical-align: middle; margin-top: -1px"/></li>
+    <li><a href="https://github.com/Matheus-Alexander/ZAX_MotoboyScript">ZAX - Motoboy Script</a> &#187;</li>
+        
+        
+    
+    
+    <a href="index.html">ZAX - Motoboy Script 1.0 documentation</a> &#187;
+    
+
+        <li class="nav-item nav-item-this"><a href="">deserializer_controller module</a></li>
+    <li class="right">
+        <a href="search.html" title="Search">search</a>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+        <a href="https://github.com/Matheus-Alexander/ZAX_MotoboyScript/issues">Found a bug</a>?
+        <br />
+        Last updated on None.
+        <br />
+        &copy; <a href="copyright.html">Copyright</a> 2022, Matheus Alexander.
+        <br />
+
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 4.5.0
+        with <a href="https://github.com/LUCIT-Systems-and-Development/python-docs-theme-technopathy">python-docs-theme-technopathy</a>
+        by <a href="https://www.lucit.tech">LUCIT Systems and Development</a>
+    </div>
+
+  </body>
+</html>

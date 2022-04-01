@@ -8,4 +8,12 @@ class Pedido:
     assigned: bool = False
 
     def change_assigned_value(self, value):
+        """
+        Updates self.assigned to the received value parameter.
+
+        Parameters
+        ----------
+        value : bool
+            True or False.
+        """
         self.assigned = value
