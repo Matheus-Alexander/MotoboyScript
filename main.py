@@ -13,6 +13,19 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         motoboy_ids = sys.argv[-1].split(",")
         motoboy_ids = list(map(int, motoboy_ids))
-        display_motoboys_profit(motoboys_list, pedidos_list, lojas_list, motoboy_ids)
+
+        filtered_motoboys_list = [
+            motoboy for motoboy in motoboys_list if not motoboy_ids or motoboy.id in motoboy_ids
+        ]
+
+        if not filtered_motoboys_list:
+            raise ValueError(f"Nenhum dos motoboys {motoboy_ids} existe.")
+
+        display_motoboys_profit(filtered_motoboys_list, pedidos_list, lojas_list, motoboy_ids)
+
+        existing_motoboy_ids = [filtered_motoboys_list_item.id for filtered_motoboys_list_item in filtered_motoboys_list]
+        non_existing_motoboy_ids = list(set(motoboy_ids) - set(existing_motoboy_ids))
+        if non_existing_motoboy_ids:
+            raise ValueError(f"O(s) motoboy(s) {non_existing_motoboy_ids} não existe(m).")
     else:
         display_motoboys_profit(motoboys_list, pedidos_list, lojas_list)
