@@ -2,7 +2,7 @@
 For this project's documentation, access https://matheus-alexander.github.io/ZAX_MotoboyScript/.
 
 # Usage
-Clone the repository and run:
+Clone the repository or download, extract and ```cd``` into the lastest release, and run:
 ```python main.py```
 
 main.py accepts a comma-separated list of int or a single int as a filter for the final generated Motoboys report.
