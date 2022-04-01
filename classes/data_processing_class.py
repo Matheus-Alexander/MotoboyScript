@@ -48,7 +48,7 @@ class DataProcessing:
         avg_orders_per_motoboy = ceil(len(pedidos_list) / len(motoboys_list))
         
         for motoboy in motoboys_list:
-            assign_orders(motoboy, motoboys_list, pedidos_list, id_lojas_com_motoboy_exclusivo, avg_orders_per_motoboy)
+            assign_orders(motoboy, pedidos_list, id_lojas_com_motoboy_exclusivo, avg_orders_per_motoboy)
 
     def calculate_motoboy_profit(self):
         """
