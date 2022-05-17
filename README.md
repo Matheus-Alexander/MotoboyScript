@@ -1,5 +1,5 @@
-# ZAX - Motoboy Script
-For this project's documentation, access https://matheus-alexander.github.io/ZAX_MotoboyScript/.
+# Motoboy Script
+For this project's documentation, access https://matheus-alexander.github.io/MotoboyScript/.
 
 # Usage
 Clone the repository or download, extract and ```cd``` into the lastest release, and run:
